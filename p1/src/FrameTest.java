@@ -1,3 +1,4 @@
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -36,18 +38,18 @@ public class FrameTest {
 		/* para organizar o conteudo em grelha (linhas x colunas)
 		se um dos valores for zero, o numero de linhas ou colunas (respetivamente) fica indefinido,
 		e estas sao acrescentadas automaticamente */
-		frame.setLayout(new GridLayout(4,1));
+		frame.setLayout(new GridLayout(2,2));
 
-		JLabel label = new JLabel("This is a label");
+		JLabel label = new JLabel("label");
 		frame.add(label);
 
-		JTextField text = new JTextField("This is a text field");
+		JTextField text = new JTextField("text");
 		frame.add(text);
 		
-		JCheckBox check = new JCheckBox("This is a check box");
+		JCheckBox check = new JCheckBox("check");
 		frame.add(check);
 		
-		JButton button = new JButton("This is a button");
+		JButton button = new JButton("button");
 		button.addActionListener(new ActionListener() {
 			
 			@Override
