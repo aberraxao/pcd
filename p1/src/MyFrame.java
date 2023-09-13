@@ -27,14 +27,14 @@ public class MyFrame {
 
         frame.setLayout(new GridLayout(4, 1));
 
-        JTextField title = addPanel(frame, "title", "Hello");
-        JTextField width = addPanel(frame, "width", "300");
-        JTextField height = addPanel(frame, "height", "150");
+        JTextField title = addPanel("title", "Hello");
+        JTextField width = addPanel("width", "300");
+        JTextField height = addPanel("height", "150");
 
-        addBottomPanel(frame, title, width, height);
+        addBottomPanel(title, width, height);
     }
 
-    private static JTextField addPanel(JFrame frame, String lb, String txt) {
+    private JTextField addPanel(String lb, String txt) {
         JPanel pnTitle = new JPanel(new GridLayout(1, 2));
         frame.add(pnTitle);
         JLabel label = new JLabel(lb);
@@ -44,7 +44,7 @@ public class MyFrame {
         return text;
     }
 
-    private static void addBottomPanel(JFrame frame, JTextField title, JTextField width, JTextField height) {
+    private void addBottomPanel( JTextField title, JTextField width, JTextField height) {
         JPanel pnBottom = new JPanel(new GridLayout(1, 2));
         frame.add(pnBottom);
 
