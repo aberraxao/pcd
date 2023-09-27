@@ -1,40 +1,47 @@
 package ex1_b;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Counter {
     private int count = 0;
+    private Lock lock = new ReentrantLock(); // Cadeado extrínseco - Lock is an interface
 
     public int get() {
         return count;
     }
 
-    synchronized public void increment() {
+    public void increment() {
         // count = count + 1;
         // READ count
         // MODIFY add
         // WRITE count
-        // synchronized (this) { // could have this here or add it before public
-        count++;
-        // }
+        lock.lock();
+        try {
+            count++;
+        } finally { // in case of an issue
+            lock.unlock();
+        }
     }
 
-    synchronized public void incrementByValue(int val){
-       // synchronized (this){
+    public void incrementByValue(int val) {
+        // using the same lock, because we are updating the same variable
+        lock.lock();
+        try {
             count = count + val;
-      //  }
+        } finally { // in case of an issue
+            lock.unlock();
+        }
     }
 
     private class ConcurrentCount extends Thread {
 
         @Override
         public void run() {
-            // TODO: 1000 incrementos no contador
-            // Acesso ao contador "ex1_b.Counter.this"
-
             for (int i = 0; i < 1000; i++) {
-                increment(); // same as ex1_b.Counter.this.increment();
+                increment();
             }
         }
-
     }
 
 
@@ -55,8 +62,7 @@ public class Counter {
             t.join();
         }
         // We expect counter <=4000, because we might lose some counts
-        System.out.println("ex1_b.Counter value: " + sharedCounter.get());
+        System.out.println("Counter value: " + sharedCounter.get());
     }
-
 }
 

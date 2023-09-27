@@ -1,4 +1,4 @@
-package ex1_a;
+package ex1_a_2;
 
 public class Counter {
     private int count = 0;
@@ -7,37 +7,28 @@ public class Counter {
         return count;
     }
 
-    public void increment() {
+    synchronized public void increment() {
         // count = count + 1;
         // READ count
         // MODIFY add
         // WRITE count
+        // synchronized (this) { // could have this here or add it before public
         count++;
+        // }
     }
 
-    /*
-        private static class ConcurrentCount extends Thread {
-       private Counter shareadCounter;
-       public ConcurrentCount(Counter sharedCounter){
-           this.shareadCounter = sharedCounter;
-       }
-
-        @Override
-        public void run(){
-            // ...
-        }
-
+    synchronized public void incrementByValue(int val) {
+        // synchronized (this){
+        count = count + val;
+        //  }
     }
-     */
 
     private class ConcurrentCount extends Thread {
 
         @Override
         public void run() {
-            // Acesso ao contador "ex1_a.Counter.this"
-
             for (int i = 0; i < 1000; i++) {
-                increment(); // same as ex1_a.Counter.this.increment();
+                increment();
             }
         }
 
@@ -45,14 +36,6 @@ public class Counter {
 
 
     public static void main(String[] args) throws InterruptedException {
-        /*
-        Counter sharedCounter = new Counter(); // Objeto partilhado
-        Counter.ConcurrentCount[] threads = new Counter.ConcurrentCount[4];
-        for (int i=0; i< threads.length; i++){
-            threads[i] = new Counter.ConcurrentCount(sharedCounter); // Partilha explícita
-        }
-        */
-
         Counter sharedCounter = new Counter(); // Objeto partilhado
         ConcurrentCount[] threads = new ConcurrentCount[4];
         for (int i = 0; i < threads.length; i++) {
