@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+// Exemplo da aula
 public class AppExample {
 
     private JFrame frame;

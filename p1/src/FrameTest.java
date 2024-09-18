@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+// Exemplo da aula
 public class FrameTest {
 	private JFrame frame;
 
