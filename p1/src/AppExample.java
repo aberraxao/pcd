@@ -51,7 +51,7 @@ public class AppExample {
 
         // BorderLayout
         // frame.add(lb1, BorderLayout.NORTH);
-        // frame.add(lb2, BorderLayout.CENTER);
+        // frame.add(lb2, BorderLayout.CENTER); // se não tiver uma componente a ocupar o espaço, o centro toma conta
         // frame.add(lb3, BorderLayout.SOUTH);
 
         // Event Handlers:

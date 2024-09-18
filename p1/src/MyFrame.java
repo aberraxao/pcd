@@ -1,9 +1,9 @@
+import javax.swing.*;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
-
+// Exercício 1
 public class MyFrame {
     private JFrame frame;
 
@@ -44,7 +44,7 @@ public class MyFrame {
         return text;
     }
 
-    private void addBottomPanel( JTextField title, JTextField width, JTextField height) {
+    private void addBottomPanel(JTextField title, JTextField width, JTextField height) {
         JPanel pnBottom = new JPanel(new GridLayout(1, 2));
         frame.add(pnBottom);
 

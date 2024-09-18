@@ -1,4 +1,3 @@
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +7,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -37,7 +35,9 @@ public class FrameTest {
 		
 		/* para organizar o conteudo em grelha (linhas x colunas)
 		se um dos valores for zero, o numero de linhas ou colunas (respetivamente) fica indefinido,
-		e estas sao acrescentadas automaticamente */
+		e estas sao acrescentadas automaticamente.
+		Por defeito o JFrame usa o BorderLayout
+		*/
 		frame.setLayout(new GridLayout(2,2));
 
 		JLabel label = new JLabel("label");
