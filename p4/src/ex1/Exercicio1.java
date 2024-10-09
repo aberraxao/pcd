@@ -7,12 +7,12 @@ public class Exercicio1 {
         versao1();
 
         System.out.println("------ versão 2 ------");
+        // Lança uma InterruptedException
         versao2();
     }
 
 
-
-    private static void versao1(){
+    private static void versao1() {
         // Criar uma mesa partilhada
         BufferMesa mesa = new BufferMesa();
 
@@ -28,10 +28,10 @@ public class Exercicio1 {
         }
 
         // Iniciar todas as threadas e verificar mensagens de coordenacao
-        for (Cozinheiro cozinheiro: cozinheiros){
+        for (Cozinheiro cozinheiro : cozinheiros) {
             cozinheiro.start();
         }
-        for (Gaules gaules : glutoes){
+        for (Gaules gaules : glutoes) {
             gaules.start();
         }
 
@@ -49,18 +49,18 @@ public class Exercicio1 {
             glutoes[i] = new Gaules(i, -1, mesa);
         }
 
-        for (Cozinheiro cozinheiro: cozinheiros){
+        for (Cozinheiro cozinheiro : cozinheiros) {
             cozinheiro.start();
         }
-        for (Gaules gaules : glutoes){
+        for (Gaules gaules : glutoes) {
             gaules.start();
         }
 
         Thread.sleep(10000);
-        for (Cozinheiro cozinheiro: cozinheiros){
+        for (Cozinheiro cozinheiro : cozinheiros) {
             cozinheiro.interrupt();
         }
-        for (Gaules gaules : glutoes){
+        for (Gaules gaules : glutoes) {
             gaules.interrupt();
         }
     }
