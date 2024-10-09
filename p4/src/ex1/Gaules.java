@@ -2,14 +2,14 @@ package ex1;
 
 /**
  * Classe consumidora - THREAD
- * - run() - consumir um numero fixo de javalis
+ * - Tarefa run() - consumir um numero fixo de javalis (remove os javalis do buffer partilhado)
  */
-public class Glutao extends Thread {
+public class Gaules extends Thread {
     private int id; // Identificador
     private int max; // Numero de javalis a consumir
     private BufferMesa mesa; // Buffer partilhado
 
-    public Glutao(int id, int max, BufferMesa mesa) {
+    public Gaules(int id, int max, BufferMesa mesa) {
         super("Glutao-" + id);
         this.id = id;
         this.max = max;
