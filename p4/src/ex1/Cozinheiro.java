@@ -20,7 +20,8 @@ public class Cozinheiro extends Thread {
     public void run() {
         int i = 0;
         try {
-            for (; i < max; i++) {
+            while (i < max || max==-1) {
+                i++;
                 // tenho um try, pq o método put é bloqueante (wait)
                 Javali j = new Javali(id, i);
                 mesa.put(j);

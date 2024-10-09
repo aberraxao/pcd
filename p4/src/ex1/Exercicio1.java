@@ -2,7 +2,17 @@ package ex1;
 
 public class Exercicio1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("------ versão 1 ------");
+        versao1();
+
+        System.out.println("------ versão 2 ------");
+        versao2();
+    }
+
+
+
+    private static void versao1(){
         // Criar uma mesa partilhada
         BufferMesa mesa = new BufferMesa();
 
@@ -26,4 +36,33 @@ public class Exercicio1 {
         }
 
     }
+
+    private static void versao2() throws InterruptedException {
+        BufferMesa mesa = new BufferMesa();
+
+        Cozinheiro[] cozinheiros = new Cozinheiro[4];
+        for (int i = 0; i < cozinheiros.length; i++) {
+            cozinheiros[i] = new Cozinheiro(i, -1, mesa);
+        }
+        Gaules[] glutoes = new Gaules[5];
+        for (int i = 0; i < glutoes.length; i++) {
+            glutoes[i] = new Gaules(i, -1, mesa);
+        }
+
+        for (Cozinheiro cozinheiro: cozinheiros){
+            cozinheiro.start();
+        }
+        for (Gaules gaules : glutoes){
+            gaules.start();
+        }
+
+        Thread.sleep(10000);
+        for (Cozinheiro cozinheiro: cozinheiros){
+            cozinheiro.interrupt();
+        }
+        for (Gaules gaules : glutoes){
+            gaules.interrupt();
+        }
+    }
+
 }

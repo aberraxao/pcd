@@ -20,7 +20,8 @@ public class Gaules extends Thread {
     public void run() {
         int i = 0;
         try {
-            for (; i < max; i++) {
+            while (i < max || max == -1) {
+                i++;
                 Javali j = mesa.get();
                 System.out.println("Consumido por " + getName() + " " + j);
             }
